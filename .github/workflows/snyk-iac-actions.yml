@@ -19,6 +19,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           json: true
+          args: --org=e2926518-4be9-4abe-970c-63547a828fd6
       - name: Upload Snyk IaC JSON results
         uses: actions/upload-artifact@master
         with:
