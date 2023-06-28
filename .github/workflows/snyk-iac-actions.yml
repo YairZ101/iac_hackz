@@ -1,7 +1,7 @@
 # The Infrastructure as Code Action also supports integrating with GitHub Code Scanning and can show issues in the
 # GitHub Security tab. When run, a snyk.sarif file will be generated which can be uploaded to GitHub Code Scanning.
 name: Snyk Infrastructure as Code Fix AI
-on: push
+on: pull_request
 jobs:
   snyk:
     runs-on: ubuntu-latest
@@ -19,7 +19,6 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           json: true
-          args: --org=e2926518-4be9-4abe-970c-63547a828fd6
       - name: Upload Snyk IaC JSON results
         uses: actions/upload-artifact@master
         with:
